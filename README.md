@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next Practice
+
+Next Practice is a local Next.js 16 practice app designed to be distributed as
+a zip package. Learners unzip it, install dependencies, run the dev server, and
+fix one focused exercise file per lesson.
 
 ## Getting Started
 
-First, run the development server:
+After unzipping the package, install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How the Lessons Work
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Read the main page for the workflow.
+2. Open a lesson from the left sidebar.
+3. Read the top section for the goal, explanation, and referenced file path.
+4. Open that file in your IDE.
+5. Fix only the requested behavior.
+6. Return to the browser. The lower result section shows an error loading state
+   until the file is correct, then switches to `Successful` and loads the actual
+   result.
 
-## Learn More
+The exercise files compile in their initial state, but their behavior is
+intentionally wrong or incomplete. This keeps the dev server usable while giving
+each lesson a real fix to make.
 
-To learn more about Next.js, take a look at the following resources:
+## Lesson Files
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All exercise files live in `src/exercises`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `lesson-01-route-title.ts`
+- `lesson-02-home-copy.tsx`
+- `lesson-03-navigation.ts`
+- `lesson-04-dynamic-params.ts`
+- `lesson-05-metadata.ts`
+- `lesson-06-posts.ts`
+- `lesson-07-user-card.tsx`
+- `lesson-08-empty-state.tsx`
+- `lesson-09-feature-list.tsx`
+- `lesson-10-loading-state.tsx`
+- `lesson-11-cache-policy.ts`
+- `lesson-12-search-params.ts`
+- `lesson-13-form-data.ts`
+- `lesson-14-status-class.ts`
+- `lesson-15-image-props.ts`
+- `lesson-16-route-response.ts`
+- `lesson-17-server-action.ts`
+- `lesson-18-optimistic-reducer.ts`
+- `lesson-19-suspense-card.tsx`
+- `lesson-20-static-params.ts`
 
-## Deploy on Vercel
+## Useful Commands
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run dev
+npm run lint
+npm run build
+npm run check
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Packaging
+
+Before creating a zip for learners, remove generated dependency and build
+folders if they exist:
+
+```bash
+rm -rf node_modules .next
+```
+
+Then zip the project folder. Learners should run `npm install` after unzipping.
