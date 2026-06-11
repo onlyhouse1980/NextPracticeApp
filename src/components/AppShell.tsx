@@ -12,7 +12,7 @@ export function AppShell({ children, currentSlug }: AppShellProps) {
     <div className="min-h-screen bg-[#f5f7fb] text-slate-900">
       <div className="mx-auto flex min-h-screen w-full max-w-[1520px] flex-col lg:flex-row">
         <aside className="border-b border-slate-200 bg-white/95 px-4 py-4 lg:sticky lg:top-0 lg:h-screen lg:w-80 lg:shrink-0 lg:overflow-y-auto lg:border-b-0 lg:border-r lg:px-5">
-          <Link href="/" className="block rounded-md px-2 py-2">
+          <Link href="/dashboard" className="block rounded-md px-2 py-2">
             <span className="block text-xl font-semibold tracking-tight text-slate-950">
               Next Practice
             </span>
