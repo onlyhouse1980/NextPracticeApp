@@ -5,6 +5,6 @@ export type PracticePost = {
 };
 
 // TODO: Return only published posts, newest first.
-export function getPublishedPosts(posts: PracticePost[]) {
+export function getPublishedPosts() {
   return posts;
 }

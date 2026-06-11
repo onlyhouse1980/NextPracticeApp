@@ -1,8 +1,8 @@
 export const homeIntroContent = {
   // TODO: Replace this starter copy with the expected lesson copy.
-  headline: "Build the habit of fixing real Next.js files",
-  summary: "Open a lesson, edit the referenced file, and return to the browser to verify the result.",
-  cta: "Start Lesson 1",
+  headline: "Edit page.tsx to get started",
+  summary: "This is still the generated starter message.",
+  cta: "Documentation",
 };
 
 export function HomeIntro() {
