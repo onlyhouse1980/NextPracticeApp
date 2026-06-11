@@ -6,6 +6,8 @@ fix one focused exercise file per lesson.
 
 ## Getting Started
 
+Download the latest release zip file.
+
 After unzipping the package, install dependencies:
 
 ```bash
