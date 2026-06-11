@@ -1,4 +1,4 @@
-// TODO: Return a complete browser title for a page in this app.
+// TODO: Append " | Next Practice" to the provided page title.
 export function buildMetadataTitle(pageTitle: string) {
   return pageTitle;
 }

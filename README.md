@@ -39,26 +39,46 @@ each lesson a real fix to make.
 
 All exercise files live in `src/exercises`.
 
-- `lesson-01-route-title.ts`
-- `lesson-02-home-copy.tsx`
-- `lesson-03-navigation.ts`
-- `lesson-04-dynamic-params.ts`
-- `lesson-05-metadata.ts`
-- `lesson-06-posts.ts`
-- `lesson-07-user-card.tsx`
-- `lesson-08-empty-state.tsx`
-- `lesson-09-feature-list.tsx`
-- `lesson-10-loading-state.tsx`
-- `lesson-11-cache-policy.ts`
-- `lesson-12-search-params.ts`
-- `lesson-13-form-data.ts`
-- `lesson-14-status-class.ts`
-- `lesson-15-image-props.ts`
-- `lesson-16-route-response.ts`
-- `lesson-17-server-action.ts`
-- `lesson-18-optimistic-reducer.ts`
-- `lesson-19-suspense-card.tsx`
-- `lesson-20-static-params.ts`
+- `lesson-01-home-copy.tsx`
+- `lesson-02-metadata.ts`
+- `lesson-03-loading-state.tsx`
+- `lesson-04-active-link.ts`
+- `lesson-05-image-props.ts`
+- `lesson-06-cache-policy.ts`
+- `lesson-07-status-class.ts`
+- `lesson-08-dynamic-params.ts`
+- `lesson-09-link-prefetch.ts`
+- `lesson-10-viewport-config.ts`
+- `lesson-11-route-title.ts`
+- `lesson-12-navigation.ts`
+- `lesson-13-status-resolver.ts`
+- `lesson-14-feature-list.tsx`
+- `lesson-15-posts.ts`
+- `lesson-16-user-card.tsx`
+- `lesson-17-query-builder.ts`
+- `lesson-18-search-params.ts`
+- `lesson-19-pagination.ts`
+- `lesson-20-json-parser.ts`
+- `lesson-21-empty-state.tsx`
+- `lesson-22-form-data.ts`
+- `lesson-23-form-validation.ts`
+- `lesson-24-suspense-card.tsx`
+- `lesson-25-cache-tags.ts`
+- `lesson-26-opengraph-meta.ts`
+- `lesson-27-static-params.ts`
+- `lesson-28-role-redirect.ts`
+- `lesson-29-catch-all.ts`
+- `lesson-30-route-response.ts`
+- `lesson-31-cors-headers.ts`
+- `lesson-32-cookies.ts`
+- `lesson-33-custom-headers.ts`
+- `lesson-34-server-action.ts`
+- `lesson-35-action-errors.ts`
+- `lesson-36-optimistic-reducer.ts`
+- `lesson-37-middleware-paths.ts`
+- `lesson-38-clsx-merger.ts`
+- `lesson-39-error-mapper.ts`
+- `lesson-40-jwt-decoder.ts`
 
 ## Useful Commands
 

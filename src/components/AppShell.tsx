@@ -17,7 +17,7 @@ export function AppShell({ children, currentSlug }: AppShellProps) {
               Next Practice
             </span>
             <span className="mt-1 block text-sm text-slate-500">
-              20 local Next.js 16 exercises
+              40 local Next.js 16 exercises
             </span>
           </Link>
 
