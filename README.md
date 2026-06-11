@@ -6,6 +6,8 @@ fix one focused exercise file per lesson.
 
 ## Getting Started
 
+Download the latest release zip file.
+
 After unzipping the package, install dependencies:
 
 ```bash
@@ -88,14 +90,3 @@ npm run lint
 npm run build
 npm run check
 ```
-
-## Packaging
-
-Before creating a zip for learners, remove generated dependency and build
-folders if they exist:
-
-```bash
-rm -rf node_modules .next
-```
-
-Then zip the project folder. Learners should run `npm install` after unzipping.
