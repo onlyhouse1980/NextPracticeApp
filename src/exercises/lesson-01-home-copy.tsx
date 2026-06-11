@@ -2,9 +2,9 @@ import type { JSX } from "react";
 
 // TODO: Complete this content object to match the expected homepage copy.
 export const homeIntroContent = {
-  headline: "Build the habit of fixing real Next.js files",
-  summary: "Open a lesson, edit the referenced file, and return to the browser to verify the result.",
-  cta: "Start Lesson 1",
+  headline: "Replace this with the correct headline",
+  summary: "Replace this with the correct summary",
+  cta: "Replace this with the correct CTA",
 };
 
 export function HomeIntro(): JSX.Element {
