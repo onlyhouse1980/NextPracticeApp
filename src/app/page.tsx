@@ -100,7 +100,7 @@ export default function LandingPage() {
               <p className="text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 A localized learning sandbox featuring 40 practical coding exercises.
                 Extract searchParams, handle cookies, write server actions, build middleware paths,
-                and debug hydration issues directly in your favorite IDE.
+                and debug hydration issues in a live editor built into every lesson.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -145,7 +145,7 @@ export default function LandingPage() {
                   </button>
                 </div>
 
-                {/* Simulated IDE / Editor */}
+                {/* Embedded editor preview */}
                 <div className="p-4 bg-slate-900 border-b border-slate-800 font-mono text-xs overflow-x-auto h-48 select-none text-left">
                   <div className="text-slate-500">{"// TODO: Complete this content object to match the expected homepage copy."}</div>
                   <div className="text-purple-400 mt-1">{"export const "}
@@ -160,7 +160,7 @@ export default function LandingPage() {
                       <span className="text-slate-300">,</span>
                       <br />
                       <span className="text-teal-400">+</span> <span className="text-blue-300">summary: </span>
-                      <span className="text-emerald-300">{'"Open a lesson, edit the referenced file, and return to the browser to verify the result."'}</span>
+                      <span className="text-emerald-300">{'"Open a lesson, edit its code in the embedded workspace, and save to verify the result."'}</span>
                       <span className="text-slate-300">,</span>
                       <br />
                       <span className="text-teal-400">+</span> <span className="text-blue-300">cta: </span>
@@ -216,7 +216,7 @@ export default function LandingPage() {
                           </div>
                           <div className="rounded border border-slate-800 p-3 bg-slate-950">
                             <h5 className="text-sm font-bold text-white">Build the habit of fixing real Next.js files</h5>
-                            <p className="text-xs text-slate-400 mt-1">Open a lesson, edit the referenced file, and return to the browser to verify the result.</p>
+                            <p className="text-xs text-slate-400 mt-1">Open a lesson, edit its code in the embedded workspace, and save to verify the result.</p>
                             <button className="mt-3 rounded bg-teal-500 px-3 py-1.5 text-xs font-semibold text-slate-950">Start Lesson 1</button>
                           </div>
                         </div>
@@ -224,7 +224,7 @@ export default function LandingPage() {
                         <div className="rounded-md border border-rose-500/20 bg-rose-500/5 p-4 text-left">
                           <p className="text-xs font-semibold text-rose-400">Error loading result</p>
                           <p className="text-xs text-rose-300/80 mt-1">
-                            The homepage copy does not match. Check headline, summary, and CTA variables in your editor.
+                            The homepage copy does not match. Check headline, summary, and CTA variables in the embedded editor.
                           </p>
                         </div>
                       )}
@@ -285,9 +285,9 @@ export default function LandingPage() {
               <span className="absolute -top-4 left-6 h-8 w-8 rounded-lg bg-teal-500 flex items-center justify-center font-bold text-slate-950 shadow-lg shadow-teal-500/20 text-sm">
                 3
               </span>
-              <h3 className="mt-4 text-lg font-semibold text-white">Fix Code Files</h3>
+              <h3 className="mt-4 text-lg font-semibold text-white">Edit in the Lesson</h3>
               <p className="mt-2 text-sm text-slate-400 leading-relaxed">
-                Open referenced files (e.g. `lesson-04-active-link.ts`) in your IDE. Fix the logic, save, and verify.
+                Use the embedded editor to fix the real exercise file, save it, and watch the live result rebuild beside your code.
               </p>
               <pre className="mt-4 overflow-x-auto rounded-md bg-slate-950 p-3 text-xs font-mono text-slate-300 text-left">
                 <code>{"// Return expected styles...\nreturn isOk ? 'btn' : 'btn-err';"}</code>

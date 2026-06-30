@@ -2,7 +2,7 @@
 
 Next Practice is a local Next.js 16 practice app designed to be distributed as
 a zip package. Learners unzip it, install dependencies, run the dev server, and
-fix one focused exercise file per lesson.
+fix one focused exercise file per lesson in an editor embedded in the website.
 
 ## Getting Started
 
@@ -27,15 +27,17 @@ Open [http://localhost:3000](http://localhost:3000).
 1. Read the main page for the workflow.
 2. Open a lesson from the left sidebar.
 3. Read the top section for the goal, explanation, and referenced file path.
-4. Open that file in your IDE.
-5. Fix only the requested behavior.
-6. Return to the browser. The lower result section shows an error loading state
-   until the file is correct, then switches to `Successful` and loads the actual
-   result.
+4. Edit the real exercise file in the embedded code workspace.
+5. Fix only the requested behavior, then choose `Save & run` or press
+   `Ctrl/Command + S`.
+6. The app validates the TypeScript before writing to disk. A valid save triggers
+   the dev server, and the adjacent result switches to `Successful` when the
+   behavior is correct.
 
 The exercise files compile in their initial state, but their behavior is
 intentionally wrong or incomplete. This keeps the dev server usable while giving
-each lesson a real fix to make.
+each lesson a real fix to make. The embedded editor writes to `src/exercises`
+inside the local project, so changes remain available in any external editor too.
 
 ## Lesson Files
 

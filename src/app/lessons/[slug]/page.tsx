@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { AppShell } from "@/components/AppShell";
 import { LessonView } from "@/components/LessonView";
+import { readExerciseSource } from "@/lib/exercise-source";
 import { getLessonBySlug, lessons } from "@/lib/lessons";
+
+export const dynamic = "force-dynamic";
 
 type LessonPageProps = {
   params: Promise<{
@@ -42,9 +45,11 @@ export default async function LessonPage({ params }: LessonPageProps) {
     notFound();
   }
 
+  const initialSource = await readExerciseSource(lesson.file);
+
   return (
     <AppShell currentSlug={lesson.slug}>
-      <LessonView lesson={lesson} />
+      <LessonView lesson={lesson} initialSource={initialSource} />
     </AppShell>
   );
 }

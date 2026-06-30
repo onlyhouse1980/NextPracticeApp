@@ -12,12 +12,13 @@ export default function Home() {
                             Next.js 16 practice package
                         </p>
                         <h1 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                            Read a lesson, fix the referenced file, then refresh the result.
+                            Read a lesson, edit the code, and verify it in one workspace.
                         </h1>
                         <p className="text-base leading-7 text-slate-600">
                             This app is built to be zipped, downloaded, unzipped, installed,
-                            and run locally. Each lesson points to one exercise file. The file
-                            already compiles, but one focused behavior is wrong or incomplete.
+                            and run locally. Each lesson embeds its real exercise file beside
+                            the live result. The starter code compiles, but one focused behavior
+                            is wrong or incomplete.
                         </p>
                     </div>
                 </section>
@@ -49,9 +50,8 @@ export default function Home() {
                             Fix and verify
                         </h2>
                         <p className="mt-3 text-sm leading-6 text-slate-600">
-                            Edit the referenced file in your IDE, return to the browser, and
-                            watch the live result switch from an error loading state to
-                            Successful.
+                            Edit the source in the lesson workspace, choose Save &amp; run,
+                            and watch the adjacent result switch from Needs work to Successful.
                         </p>
                     </div>
                 </section>

@@ -3,6 +3,12 @@
 :root {
   --background: #f5f7fb;
   --foreground: #172033;
+  --depth-0-factor: 0.1;
+  --depth-1-factor: 0.25;
+  --depth-2-factor: 0.5;
+  --depth-3-factor: 0.8;
+  --depth-4-factor: 1;
+  --depth-5-factor: 1.2;
 }
 
 @theme inline {
@@ -21,4 +27,187 @@ body {
 ::selection {
   background: #9ddfd3;
   color: #0e2d2a;
+}
+
+:focus-visible {
+  border-radius: 0.25rem;
+  outline: 3px solid #14b8a6;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-180%);
+  border-radius: 0.5rem;
+  background: #0f172a;
+  color: white;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.lesson-workspace {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 760px;
+}
+
+.workspace-grid-layer {
+  background-image:
+    linear-gradient(rgba(45, 212, 191, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 212, 191, 0.055) 1px, transparent 1px);
+  background-size: 3.5rem 3.5rem;
+  mask-image: linear-gradient(to bottom, black 0%, transparent 86%);
+  opacity: 0.72;
+}
+
+.workspace-glow-layer {
+  animation: atmosphere-drift 12s ease-in-out infinite;
+}
+
+.workspace-orbit-layer {
+  box-shadow:
+    0 0 0 3.5rem rgba(45, 212, 191, 0.025),
+    0 0 0 7rem rgba(45, 212, 191, 0.018);
+  animation: orbit-drift 10s ease-in-out infinite;
+}
+
+.workspace-reveal {
+  animation: workspace-enter 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.text-mask-reveal {
+  animation: text-mask-reveal 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.editor-shell {
+  animation: editor-rise 620ms 80ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.code-editor-textarea {
+  caret-color: #5eead4;
+  scrollbar-color: #334155 #080d18;
+  tab-size: 2;
+}
+
+.editor-line-numbers {
+  scrollbar-width: none;
+}
+
+.editor-line-numbers::-webkit-scrollbar {
+  display: none;
+}
+
+.status-pulse {
+  animation: status-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes workspace-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes text-mask-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    clip-path: inset(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes editor-rise {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) translateY(18px) rotateX(1.5deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) translateY(0) rotateX(0);
+  }
+}
+
+@keyframes atmosphere-drift {
+  0%,
+  100% {
+    opacity: 0.62;
+    transform: translate3d(0, 0, 0) scale(0.96);
+  }
+  50% {
+    opacity: 0.88;
+    transform: translate3d(24px, -10px, 0) scale(1.05);
+  }
+}
+
+@keyframes orbit-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-18px, 14px, 0) rotate(4deg);
+  }
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.82);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+@media (pointer: coarse) {
+  .workspace-glow-layer,
+  .workspace-orbit-layer {
+    animation: none;
+    opacity: 0.5;
+  }
+
+  .editor-shell {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-depth] {
+    filter: none !important;
+    transform: none !important;
+  }
+
+  .workspace-glow-layer,
+  .workspace-orbit-layer,
+  .status-pulse {
+    animation: none !important;
+  }
 }

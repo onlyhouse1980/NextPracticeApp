@@ -62,7 +62,7 @@ const routeTitleExpected = "Server Components";
 const homeIntroExpected = {
   headline: "Build the habit of fixing real Next.js files",
   summary:
-    "Open a lesson, edit the referenced file, and return to the browser to verify the result.",
+    "Open a lesson, edit its code in the embedded workspace, and save to verify the result.",
   cta: "Start Lesson 1",
 };
 
@@ -287,7 +287,7 @@ export const lessons: Lesson[] = [
     ],
     answerSyntax: `export const homeIntroContent = {
   headline: "Build the habit of fixing real Next.js files",
-  summary: "Open a lesson, edit the referenced file, and return to the browser to verify the result.",
+  summary: "Open a lesson, edit its code in the embedded workspace, and save to verify the result.",
   cta: "Start Lesson 1",
 };`,
     successText: "The card is successful when the content object matches the expected copy.",
