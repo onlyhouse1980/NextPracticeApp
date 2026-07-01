@@ -47,6 +47,7 @@ export function ExerciseEditor({
   );
   const isDirty = source !== savedSource;
   const isSaving = saveState === "checking";
+  const editorLocked = isSaving || saveState === "saved" || isRefreshing;
 
   useEffect(() => {
     const warnAboutUnsavedChanges = (event: BeforeUnloadEvent) => {
@@ -56,10 +57,42 @@ export function ExerciseEditor({
 
       event.preventDefault();
     };
+    const confirmInternalNavigation = (event: MouseEvent) => {
+      if (
+        !isDirty ||
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+
+      const target = event.target;
+      const link =
+        target instanceof Element ? target.closest<HTMLAnchorElement>("a[href]") : null;
+
+      if (
+        !link ||
+        link.target === "_blank" ||
+        link.hasAttribute("download") ||
+        window.confirm("Discard your unsaved exercise changes?")
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    };
 
     window.addEventListener("beforeunload", warnAboutUnsavedChanges);
-    return () =>
+    document.addEventListener("click", confirmInternalNavigation, true);
+    return () => {
       window.removeEventListener("beforeunload", warnAboutUnsavedChanges);
+      document.removeEventListener("click", confirmInternalNavigation, true);
+    };
   }, [isDirty]);
 
   async function saveSource() {
@@ -98,6 +131,12 @@ export function ExerciseEditor({
       window.setTimeout(() => {
         startRefresh(() => router.refresh());
       }, 250);
+      window.setTimeout(() => {
+        setSaveState((currentState) =>
+          currentState === "saved" ? "clean" : currentState,
+        );
+        setMessage("Saved locally. The live result is up to date.");
+      }, 3_000);
     } catch {
       setSaveState("error");
       setMessage(
@@ -231,6 +270,7 @@ export function ExerciseEditor({
           onChange={(event) => handleSourceChange(event.target.value)}
           onKeyDown={handleKeyDown}
           onScroll={syncLineNumbers}
+          readOnly={editorLocked}
           spellCheck={false}
           value={source}
           wrap="off"
@@ -256,7 +296,7 @@ export function ExerciseEditor({
           <div className="flex shrink-0 gap-2">
             <button
               className="h-9 rounded-lg border border-slate-700 px-3 text-xs font-semibold text-slate-300 transition hover:border-slate-600 hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-40"
-              disabled={!isDirty || isSaving}
+              disabled={!isDirty || editorLocked}
               onClick={discardChanges}
               type="button"
             >
@@ -264,7 +304,7 @@ export function ExerciseEditor({
             </button>
             <button
               className="h-9 rounded-lg bg-teal-400 px-4 text-xs font-bold text-slate-950 shadow-lg shadow-teal-500/15 transition hover:bg-teal-300 disabled:cursor-not-allowed disabled:bg-slate-700 disabled:text-slate-400 disabled:shadow-none"
-              disabled={!isDirty || isSaving}
+              disabled={!isDirty || editorLocked}
               onClick={() => void saveSource()}
               type="button"
             >

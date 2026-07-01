@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import { AppShell } from "@/components/AppShell";
 import { LessonView } from "@/components/LessonView";
 import { readExerciseSource } from "@/lib/exercise-source";
@@ -48,8 +49,14 @@ export default async function LessonPage({ params }: LessonPageProps) {
   const initialSource = await readExerciseSource(lesson.file);
 
   return (
-    <AppShell currentSlug={lesson.slug}>
-      <LessonView lesson={lesson} initialSource={initialSource} />
-    </AppShell>
+    <>
+      <Script
+        src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"
+        strategy="afterInteractive"
+      />
+      <AppShell currentSlug={lesson.slug}>
+        <LessonView lesson={lesson} initialSource={initialSource} />
+      </AppShell>
+    </>
   );
 }

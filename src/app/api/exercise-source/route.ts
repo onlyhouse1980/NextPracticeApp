@@ -14,6 +14,14 @@ type SaveExerciseRequest = {
 
 export async function PUT(request: Request) {
   let payload: SaveExerciseRequest;
+  const origin = request.headers.get("origin");
+
+  if (origin && origin !== new URL(request.url).origin) {
+    return NextResponse.json(
+      { message: "Cross-origin exercise edits are not allowed." },
+      { status: 403 },
+    );
+  }
 
   try {
     payload = (await request.json()) as SaveExerciseRequest;
